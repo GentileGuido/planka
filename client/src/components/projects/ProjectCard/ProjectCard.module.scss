@@ -5,11 +5,11 @@
 
 :global(#app) {
   .content {
-    color: #fff;
+    color: #37352F;
   }
 
   .cover {
-    background: #555;
+    background: #E9E9E7;
     bottom: 0;
     left: 0;
     position: absolute;
@@ -22,7 +22,7 @@
       bottom: 0;
       content: "";
       left: 0;
-      opacity: 0.3;
+      opacity: 0.08;
       position: absolute;
       right: 0;
       top: 0;
@@ -30,7 +30,7 @@
   }
 
   .description {
-    border-left: 1px solid;
+    border-left: 1px solid #E9E9E7;
     display: -webkit-box;
     font-weight: lighter;
     hyphens: auto;
@@ -60,7 +60,7 @@
     width: 36px;
 
     &:hover {
-      background: rgba(0, 0, 0, 0.12);
+      background: rgba(55, 53, 47, 0.08);
     }
   }
 
@@ -69,7 +69,7 @@
   }
 
   .icon {
-    color: rgba(255, 255, 255, 0.8);
+    color: #787774;
     font-size: 18px;
   }
 
@@ -79,9 +79,9 @@
   }
 
   .notifications {
-    background: #eb5a46;
+    background: #EB5A46;
     border: none;
-    border-radius: 3px;
+    border-radius: 6px;
     outline: none;
     padding: 0px 6px;
     position: absolute;
@@ -101,11 +101,11 @@
   }
 
   .titleActivatable {
-    color: rgba(255, 255, 255, 0.72);
+    color: #787774;
   }
 
   .titleActive {
-    color: #fff;
+    color: #37352F;
     font-weight: bold;
   }
 
@@ -126,13 +126,20 @@
   }
 
   .wrapper {
-    border-radius: 4px;
+    background: #FFFFFF;
+    border: 1px solid #E9E9E7;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.06);
     overflow: hidden;
     position: relative;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
 
     &:hover {
+      border-color: #D3D3D0;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08), 0 1px 4px rgba(0, 0, 0, 0.06);
+
       .cover {
-        filter: brightness(0.8);
+        filter: brightness(0.95);
       }
 
       .description {
@@ -145,7 +152,7 @@
       }
 
       .titleActivatable {
-        color: #fff;
+        color: #37352F;
       }
     }
   }

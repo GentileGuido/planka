@@ -13,7 +13,7 @@
   }
 
   .attachmentContent {
-    color: #6a808b;
+    color: #787774;
     font-size: 12px;
     line-height: 20px;
     max-width: 176px;
@@ -54,13 +54,13 @@
   }
 
   .coverWrapper {
-    border-radius: 3px;
+    border-radius: 8px;
     margin-bottom: 8px;
     overflow: hidden;
   }
 
   .creatorDivider {
-    background: #dce0e4;
+    background: #E9E9E7;
     display: inline-block;
     height: 24px;
     margin: 2px 2px 0 4px;
@@ -77,9 +77,9 @@
   }
 
   .name {
-    color: #17394d;
+    color: #37352F;
     font-size: 14px;
-    line-height: 18px;
+    line-height: 20px;
     margin-bottom: 8px;
     word-wrap: break-word;
   }
@@ -89,13 +89,13 @@
   }
 
   .notification {
-    background: #eb5a46;
+    background: #EB5757;
     color: #fff;
     font-size: 12px;
     line-height: 20px;
     padding: 0px 6px;
     border: none;
-    border-radius: 3px;
+    border-radius: 8px;
     display: inline-block;
     outline: none;
     text-align: left;
@@ -104,7 +104,7 @@
   }
 
   .wrapper {
-    padding: 6px 8px 0;
+    padding: 8px 10px 2px;
 
     &:after {
       clear: both;

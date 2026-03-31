@@ -99,7 +99,7 @@ const Header = React.memo(() => {
           PLANKA
         </Link>
       )}
-      <Menu inverted size="large" className={styles.menu}>
+      <Menu size="large" className={styles.menu}>
         {project && (
           <Menu.Menu position="left">
             <Menu.Item

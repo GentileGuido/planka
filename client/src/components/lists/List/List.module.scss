@@ -9,23 +9,25 @@
   }
 
   .addCardButton {
-    background: #dfe3e6;
+    background: transparent;
     border: none;
-    color: #6b808c;
+    color: #787774;
     cursor: pointer;
     display: block;
-    fill: #6b808c;
+    fill: #787774;
     flex: 1;
     font-weight: normal;
     height: 36px;
     outline: none;
     padding: 8px;
     text-align: left;
+    border-radius: 6px;
+    transition: background 0.15s ease, color 0.15s ease;
 
     &:hover {
-      background: #c3cbd0;
-      color: #17394d;
-      fill: #17394d;
+      background: #F0F0F0;
+      color: #37352F;
+      fill: #37352F;
     }
 
     &.paste {
@@ -65,16 +67,16 @@
     width: 290px;
 
     @supports (-moz-appearance: none) {
-      scrollbar-color: rgba(0, 0, 0, 0.32) transparent;
+      scrollbar-color: rgba(0, 0, 0, 0.2) transparent;
       scrollbar-width: thin;
     }
 
     &:hover {
-      width: 272px;
+      width: 280px;
     }
 
     &::-webkit-scrollbar {
-      width: 5px;
+      width: 4px;
     }
 
     &::-webkit-scrollbar-track {
@@ -82,19 +84,20 @@
     }
 
     &::-webkit-scrollbar-thumb {
-      border-radius: 3px;
+      border-radius: 4px;
+      background: rgba(0, 0, 0, 0.15);
     }
   }
 
   .cardsOuterWrapper {
     padding: 0 8px;
     white-space: normal;
-    width: 272px;
+    width: 280px;
   }
 
   .header {
     outline: none;
-    padding: 6px 36px 6px 8px;
+    padding: 8px 36px 8px 10px;
     position: relative;
 
     &:hover {
@@ -115,32 +118,35 @@
   .headerButton {
     background: none;
     box-shadow: none;
-    color: #798d99;
+    color: #787774;
     line-height: 32px;
     margin: 0;
     opacity: 0;
     padding: 0;
     position: absolute;
     right: 4px;
-    top: 4px;
+    top: 6px;
     width: 32px;
+    border-radius: 4px;
+    transition: background 0.15s ease, opacity 0.15s ease;
 
     &:hover {
-      background: rgba(9, 30, 66, 0.13);
-      color: #516b7a;
+      background: #F0F0F0;
+      color: #37352F;
     }
   }
 
   .headerIcon {
-    color: #798d99;
+    color: #787774;
     position: absolute;
     right: 8px;
-    top: 10px;
+    top: 12px;
   }
 
   .headerName {
-    color: #17394d;
-    font-weight: bold;
+    color: #37352F;
+    font-size: 14px;
+    font-weight: 600;
     line-height: 20px;
     max-height: 256px;
     outline: none;
@@ -157,12 +163,12 @@
 
   .innerWrapper {
     margin-right: 8px;
-    width: 272px;
+    width: 280px;
   }
 
   .outerWrapper {
-    background: #dfe3e6;
-    border-radius: 3px;
+    background: transparent;
+    border-radius: 6px;
     display: flex;
     flex-direction: column;
     max-height: calc(100vh - 198px);

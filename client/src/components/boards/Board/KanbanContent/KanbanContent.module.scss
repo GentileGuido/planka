@@ -5,19 +5,18 @@
 
 :global(#app) {
   .addListButton {
-    background: rgba(0, 0, 0, 0.24);
-    border: none;
-    border-radius: 3px;
-    color: rgba(255, 255, 255, 0.72);
+    background: rgba(0, 0, 0, 0.04);
+    border: 1px dashed rgba(0, 0, 0, 0.12);
+    border-radius: 8px;
+    color: #787774;
     cursor: pointer;
     display: block;
-    fill: rgba(255, 255, 255, 0.72);
+    fill: #787774;
     font-weight: normal;
     height: 42px;
     padding: 11px;
     text-align: left;
-    transition: background 85ms ease-in, opacity 40ms ease-in,
-      border-color 85ms ease-in;
+    transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
     width: 100%;
 
     &:active {
@@ -25,7 +24,10 @@
     }
 
     &:hover {
-      background: rgba(0, 0, 0, 0.32);
+      background: rgba(0, 0, 0, 0.06);
+      border-color: rgba(0, 0, 0, 0.2);
+      color: #37352F;
+      fill: #37352F;
     }
   }
 
@@ -43,14 +45,15 @@
   }
 
   .list {
-    margin-right: 8px;
-    width: 272px;
+    margin-right: 14px;
+    width: 280px;
   }
 
   .lists {
     display: inline-flex;
     height: 100%;
     min-width: 100%;
+    gap: 0;
   }
 
   .wrapper {

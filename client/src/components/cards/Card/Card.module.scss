@@ -7,9 +7,9 @@
   .actionsButton {
     background: none;
     box-shadow: none;
-    border-radius: 3px;
+    border-radius: 6px;
     box-sizing: content-box;
-    color: #798d99;
+    color: #787774;
     display: inline-block;
     margin: 0;
     min-height: auto;
@@ -17,15 +17,15 @@
     outline: none;
     padding: 4px;
     position: absolute;
-    right: 2px;
-    top: 2px;
-    transition: background 85ms ease;
+    right: 4px;
+    top: 4px;
+    transition: background 0.15s ease, opacity 0.15s ease;
     width: 20px;
     z-index: 1000;
 
     &:hover {
-      background: #ebeef0;
-      color: #516b7a;
+      background: #F0F0F0;
+      color: #37352F;
     }
   }
 
@@ -49,15 +49,17 @@
   }
 
   .wrapper {
-    background: #fff;
-    border-radius: 3px;
-    box-shadow: 0 1px 0 #ccc;
+    background: #FFFFFF;
+    border: 1px solid #E9E9E7;
+    border-radius: 8px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
     overflow: hidden;
     position: relative;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
 
     &:hover {
-      background: #f5f6f7;
-      border-bottom-color: rgba(9, 30, 66, 0.25);
+      border-color: #D3D3D0;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 
       .actionsButton {
         opacity: 1;
@@ -70,7 +72,7 @@
 
     &:after {
       animation: slide 4s infinite 2s;
-      background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.64) 50%, rgba(128, 186, 232, 0) 99%, rgba(125, 185, 232, 0) 100%);
+      background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.3) 50%, rgba(255, 255, 255, 0) 100%);
       content: '';
       height: 100%;
       position: absolute;

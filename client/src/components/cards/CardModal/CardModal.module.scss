@@ -10,9 +10,9 @@
   }
 
   .prevButton {
-    background: rgba(255, 255, 255, 0.036);
+    background: rgba(55, 53, 47, 0.04);
     border: none;
-    border-radius: 4px;
+    border-radius: 8px;
     cursor: pointer;
     display: flex;
     height: 100%;
@@ -21,25 +21,34 @@
     padding: 18px 0;
     position: absolute;
     width: 100px;
+    transition: background 0.15s ease, box-shadow 0.15s ease;
 
     &:hover {
-      background: rgba(255, 255, 255, 0.072);
+      background: rgba(55, 53, 47, 0.08);
 
       .prevkButtonIcon {
-        color: rgba(255, 255, 255, 0.72);
+        color: rgba(55, 53, 47, 0.65);
       }
     }
   }
 
   .prevButtonIcon {
-    color: rgba(255, 255, 255, 0.36);
+    color: rgba(55, 53, 47, 0.4);
     position: sticky;
     top: 5px;
+    transition: color 0.15s ease;
   }
 
   .wrapper {
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 0 0 1px rgba(55, 53, 47, 0.09),
+                0 8px 24px rgba(55, 53, 47, 0.12);
+    color: #37352f;
+    font-size: 14px;
     margin: 2rem auto;
     width: 880px;
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
 
     @media (width < 926px) {
       @include smallScreen;

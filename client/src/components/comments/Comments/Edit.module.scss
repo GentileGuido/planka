@@ -10,22 +10,27 @@
   }
 
   .field {
-    background: #fff;
-    border-radius: 3px;
+    background: #FFFFFF;
+    border-radius: 8px;
 
     textarea {
-      border: 1px solid rgba(9, 30, 66, 0.13);
-      border-radius: 3px;
-      color: #333;
+      border: 1px solid #E9E9E7;
+      border-radius: 8px;
+      color: #37352F;
       line-height: 1.4;
       margin: 0 !important;
-      padding: 8px 12px;
+      padding: 10px 14px;
+
+      &:focus {
+        border-color: #2383E2;
+        outline: none;
+      }
     }
   }
 
   .mention {
-    background-color: #f1f8ff;
-    border-radius: 3px;
+    background-color: #E8F0FE;
+    border-radius: 4px;
   }
 
   .suggestion {

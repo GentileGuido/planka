@@ -7,7 +7,7 @@
   .editButton {
     background: transparent;
     box-shadow: none;
-    color: #fff;
+    color: #37352f;
     font-size: 15px;
     line-height: 34px;
     margin-left: 8px;
@@ -16,22 +16,24 @@
     width: 34px;
 
     &:hover {
-      background: rgba(255, 255, 255, 0.08);
+      background: #f0f0f0;
+      border-radius: 6px;
     }
   }
 
   .item {
     cursor: auto;
     user-select: auto;
+    color: #37352f !important;
 
     &:before {
-      background: none;
+      background: none !important;
     }
 
     &:active,
     &:hover {
-      background: transparent;
-      color: rgba(255, 255, 255, 0.9);
+      background: transparent !important;
+      color: #37352f !important;
 
       .editButton {
         opacity: 1;
@@ -41,32 +43,38 @@
 
   .itemHoverable:hover {
     cursor: pointer;
-    background: rgba(0, 0, 0, 0.32);
+    background: #f0f0f0 !important;
+    border-radius: 6px;
   }
 
   .itemIconEnabled {
-    color: #bdff22;
+    color: #2eaadc;
   }
 
   .logo {
-    color: #fff;
+    color: #37352f;
     flex: 0 0 auto;
-    letter-spacing: 3.5px;
+    letter-spacing: 1.5px;
     line-height: 50px;
     padding: 0 16px;
-    text-transform: uppercase;
+    text-transform: none;
+    font-weight: 700;
 
     &:before {
       background: none;
     }
+
+    &:hover {
+      color: #37352f !important;
+    }
   }
 
   .menu {
-    background: transparent;
-    border: none;
-    border-radius: 0;
-    box-shadow: none;
-    color: #fff;
+    background: transparent !important;
+    border: none !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    color: #37352f;
     flex: 1 1 auto;
     height: 50px;
     margin: 0;
@@ -74,28 +82,30 @@
   }
 
   .notification {
-    background: #eb5a46;
-    border-radius: 8px;
+    background: #eb5757;
+    border-radius: 10px;
     color: #fff;
     display: inline-block;
-    font-size: 14px;
-    font-weight: bold;
-    height: 16px;
+    font-size: 11px;
+    font-weight: 600;
+    height: 14px;
     left: 22px;
-    line-height: 16px;
-    min-width: 16px;
+    line-height: 14px;
+    min-width: 14px;
     position: absolute;
     text-align: center;
-    top: 8px;
+    top: 10px;
   }
 
   .title {
-    font-size: 20px;
-    font-weight: bold;
+    font-size: 18px;
+    font-weight: 600;
+    color: #37352f;
   }
 
   .userName {
     margin-right: 10px;
+    color: #37352f;
 
     @media only screen and (width < 768px) {
       display: none;
@@ -103,8 +113,10 @@
   }
 
   .wrapper {
-    background: rgba(0, 0, 0, 0.24);
+    background: #ffffff;
     display: flex;
     flex: 0 0 auto;
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.06);
+    padding: 0 4px;
   }
 }

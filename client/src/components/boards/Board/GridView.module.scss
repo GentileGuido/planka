@@ -5,12 +5,12 @@
 
 :global(#app) {
   .addCardButton {
-    background: rgba(0, 0, 0, 0.24);
-    border: none;
-    border-radius: 3px;
-    color: rgba(255, 255, 255, 0.72);
+    background: #FFFFFF;
+    border: 1px dashed #E9E9E7;
+    border-radius: 8px;
+    color: #787774;
     cursor: pointer;
-    fill: rgba(255, 255, 255, 0.72);
+    fill: #787774;
     flex: 1;
     font-weight: normal;
     height: 42px;
@@ -26,7 +26,10 @@
     }
 
     &:hover {
-      background: rgba(0, 0, 0, 0.32);
+      background: #F7F8FA;
+      border-color: #2383E2;
+      color: #2383E2;
+      fill: #2383E2;
     }
 
     &.paste {
@@ -53,8 +56,9 @@
   }
 
   .card {
-    background: rgba(223, 227, 230, 0.8);
-    border-radius: 3px;
+    background: #FFFFFF;
+    border: 1px solid #E9E9E7;
+    border-radius: 8px;
     padding: 4px;
   }
 
@@ -68,7 +72,7 @@
     width: 100%;
 
     @supports (-moz-appearance: none) {
-      scrollbar-color: rgba(0, 0, 0, 0.32) rgba(0, 0, 0, 0.08);
+      scrollbar-color: #E9E9E7 transparent;
     }
   }
 }

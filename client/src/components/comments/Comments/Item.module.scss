@@ -9,22 +9,23 @@
   }
 
   .bubble {
-    background: #fff;
-    border-radius: 0 8px 8px;
-    box-shadow: 0 1px 2px -1px rgba(9, 30, 66, 0.25),
-      0 0 0 1px rgba(9, 30, 66, 0.08);
+    background: #FFFFFF;
+    border-radius: 8px;
+    border: 1px solid #E9E9E7;
+    box-shadow: none;
     box-sizing: border-box;
     display: inline-block;
     line-height: 1;
     max-width: 90%;
     min-width: 40%;
     overflow: hidden;
-    padding: 8px 12px;
+    padding: 10px 14px;
   }
 
   .bubbleRight {
-    background: #dee7f4;
-    border-radius: 8px 0 8px 8px;
+    background: #EDF3FC;
+    border-radius: 8px;
+    border-color: #D3E0F2;
     float: right;
   }
 
@@ -40,14 +41,14 @@
   }
 
   .date {
-    color: #6b808c;
+    color: #787774;
     font-size: 12px;
   }
 
   .header {
-    color: #17394d;
+    color: #37352F;
     display: flex;
-    font-weight: bold;
+    font-weight: 600;
     justify-content: space-between;
     line-height: 20px;
     margin-bottom: 4px;

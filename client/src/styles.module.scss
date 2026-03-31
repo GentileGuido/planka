@@ -3,13 +3,31 @@
  * Licensed under the Fair Use License: https://github.com/plankanban/planka/blob/master/LICENSE.md
  */
 
+:root {
+  --notion-bg: #FFFFFF;
+  --notion-bg-secondary: #F7F8FA;
+  --notion-bg-tertiary: #F0F0F0;
+  --notion-text: #37352F;
+  --notion-text-secondary: #787774;
+  --notion-text-tertiary: #B4B4B0;
+  --notion-border: #E9E9E7;
+  --notion-border-hover: #D3D3D0;
+  --notion-accent: #2383E2;
+  --notion-card-bg: #FFFFFF;
+  --notion-card-shadow: 0 1px 2px rgba(0,0,0,0.04);
+  --notion-card-shadow-hover: 0 2px 8px rgba(0,0,0,0.08);
+  --notion-radius: 8px;
+  --notion-radius-sm: 4px;
+  --notion-transition: 0.15s ease;
+}
+
 :global {
   #app {
-    background: #22252a;
+    background: var(--notion-bg-secondary);
     overflow-x: auto;
 
     &::-webkit-scrollbar {
-      height: auto;
+      height: 6px;
     }
 
     .mentions-input {
@@ -19,11 +37,10 @@
       }
 
       &__suggestions {
-        border: 1px solid #d4d4d5;
-        border-radius: 3px;
+        border: 1px solid var(--notion-border);
+        border-radius: var(--notion-radius);
         border-width: 0;
-        box-shadow: 0 8px 16px -4px rgba(9, 45, 66, 0.25),
-          0 0 0 1px rgba(9, 45, 66, 0.08);
+        box-shadow: var(--notion-card-shadow-hover);
         max-height: 200px;
         overflow-y: auto;
 
@@ -31,8 +48,8 @@
           padding: 8px 12px;
 
           &--focused {
-            background-color: rgba(0, 0, 0, 0.05);
-            color: rgba(0, 0, 0, 0.95);
+            background-color: var(--notion-bg-tertiary);
+            color: var(--notion-text);
           }
         }
       }
@@ -40,16 +57,18 @@
 
     .react-datepicker {
       border: 0;
-      color: #444444;
+      color: var(--notion-text);
       font-size: 14px;
-      font-family: "Nunitoga", "Helvetica Neue", Arial, Helvetica, sans-serif;
+      font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       padding-bottom: 8px;
+      background: var(--notion-card-bg);
+      border-radius: var(--notion-radius);
     }
 
     .react-datepicker__current-month,
     .react-datepicker-time__header {
-      color: #444;
-      font-weight: normal;
+      color: var(--notion-text);
+      font-weight: 600;
       font-size: 14px;
       line-height: 32px;
       padding-bottom: 4px;
@@ -57,7 +76,7 @@
     }
 
     .react-datepicker__header {
-      background: #fff;
+      background: var(--notion-card-bg);
       border: 0;
       padding: 0;
     }
@@ -65,33 +84,34 @@
     .react-datepicker__day-name,
     .react-datepicker__day,
     .react-datepicker__time-name {
-      color: #444;
+      color: var(--notion-text);
       width: 40px;
       margin: 0;
       border-style: solid;
       border-width: 0 0 1px 1px;
-      border-color: rgba(34, 36, 38, 0.15);
+      border-color: var(--notion-border);
     }
 
     .react-datepicker__day--selected,
     .react-datepicker__day--in-selecting-range,
     .react-datepicker__day--in-range {
-      border-radius: 0;
+      border-radius: var(--notion-radius-sm);
       color: #fff;
+      background-color: var(--notion-accent);
     }
 
     .react-datepicker__day-names,
     .react-datepicker__week {
-      border-right: 1px solid #c2ccd1;
+      border-right: 1px solid var(--notion-border);
     }
 
     .react-datepicker__day-names {
-      background: #ebeef0;
-      border-top: 1px solid #c2ccd1;
+      background: var(--notion-bg-secondary);
+      border-top: 1px solid var(--notion-border);
     }
 
     .react-datepicker__day--outside-month {
-      color: rgba(68, 68, 68, 0.3);
+      color: var(--notion-text-tertiary);
     }
 
     .react-datepicker__month {
@@ -119,7 +139,8 @@
       outline: none;
 
       &:hover {
-        border-radius: 0;
+        border-radius: var(--notion-radius-sm);
+        background-color: var(--notion-bg-tertiary);
       }
     }
 
@@ -138,6 +159,7 @@
     .ui.page.dimmer {
       -webkit-perspective: none;
       perspective: none;
+      background-color: rgba(255, 255, 255, 0.75);
     }
   }
 
@@ -149,7 +171,7 @@
 
   .g-root {
     --g-font-family-monospace: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas, Liberation Mono, monospace !important;
-    --g-font-family-sans: "Nunitoga", "Helvetica Neue", Arial, Helvetica, sans-serif !important;
+    --g-font-family-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
 
     .g-md-settings-content__separator,
     .g-md-settings-content__toolbar,
@@ -159,11 +181,11 @@
   }
 
   .yfm {
-    --yfm-color-accent: #2185d0 !important;
-    --yfm-color-link: #1e70bf !important;
-    --yfm-color-text: #17394d !important;
+    --yfm-color-accent: var(--notion-accent) !important;
+    --yfm-color-link: var(--notion-accent) !important;
+    --yfm-color-text: var(--notion-text) !important;
     --yfm-font-family-monospace: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas, Liberation Mono, monospace !important;
-    --yfm-font-family-sans: "Nunitoga", "Helvetica Neue", Arial, Helvetica, sans-serif !important;
+    --yfm-font-family-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
 
     font-size: 1em !important;
 
@@ -179,6 +201,7 @@
     h5,
     h6 {
       line-height: 1.25 !important;
+      color: var(--notion-text);
     }
 
     h1 {
@@ -206,9 +229,9 @@
     }
 
     .mention {
-      color: #0366d6;
-      background-color: #f1f8ff;
-      border-radius: 3px;
+      color: var(--notion-accent);
+      background-color: rgba(35, 131, 226, 0.08);
+      border-radius: var(--notion-radius-sm);
       padding: 0 2px;
     }
 
@@ -224,25 +247,28 @@
     }
   }
 
+  /* highlight.js — Notion-inspired light theme */
+
   .hljs {
     display: block;
     overflow-x: auto;
     padding: .5em;
-    color: #333;
-    background: #f8f8f8
+    color: var(--notion-text);
+    background: var(--notion-bg-secondary);
+    border-radius: var(--notion-radius-sm);
   }
 
   .hljs-comment,
   .hljs-quote {
-    color: #998;
+    color: var(--notion-text-tertiary);
     font-style: italic
   }
 
   .hljs-keyword,
   .hljs-selector-tag,
   .hljs-subst {
-    color: #333;
-    font-weight: bold;
+    color: #D63384;
+    font-weight: 600;
   }
 
   .hljs-literal,
@@ -250,19 +276,19 @@
   .hljs-tag .hljs-attr,
   .hljs-template-variable,
   .hljs-variable {
-    color: teal
+    color: #0D6EFD
   }
 
   .hljs-doctag,
   .hljs-string {
-    color: #d14
+    color: #2DA44E
   }
 
   .hljs-section,
   .hljs-selector-id,
   .hljs-title {
-    color: #900;
-    font-weight: bold;
+    color: #953800;
+    font-weight: 600;
   }
 
   .hljs-subst {
@@ -271,43 +297,43 @@
 
   .hljs-class .hljs-title,
   .hljs-type {
-    color: #458;
-    font-weight: bold;
+    color: #6639BA;
+    font-weight: 600;
   }
 
   .hljs-attribute,
   .hljs-name,
   .hljs-tag {
-    color: navy;
+    color: #0550AE;
     font-weight: normal
   }
 
   .hljs-link,
   .hljs-regexp {
-    color: #009926
+    color: #1A7F37
   }
 
   .hljs-bullet,
   .hljs-symbol {
-    color: #990073
+    color: #6639BA
   }
 
   .hljs-built_in,
   .hljs-builtin-name {
-    color: #0086b3
+    color: #0550AE
   }
 
   .hljs-meta {
-    color: #999;
-    font-weight: bold;
+    color: var(--notion-text-secondary);
+    font-weight: 600;
   }
 
   .hljs-deletion {
-    background: #fdd
+    background: #FFEBE9
   }
 
   .hljs-addition {
-    background: #dfd
+    background: #DAFBE1
   }
 
   .hljs-emphasis {
@@ -318,31 +344,33 @@
     font-weight: bold;
   }
 
+  /* Subtle Notion-style scrollbars */
+
   ::-webkit-scrollbar {
-    height: 10px;
-    width: 10px;
+    height: 6px;
+    width: 6px;
     -webkit-appearance: none;
   }
 
   ::-webkit-scrollbar-track {
-    background: rgba(0, 0, 0, 0.1);
-    border-radius: 0px;
+    background: transparent;
+    border-radius: 3px;
   }
 
   ::-webkit-scrollbar-thumb {
-    background: rgba(0, 0, 0, 0.25);
-    border-radius: 5px;
+    background: #D3D3D0;
+    border-radius: 3px;
     cursor: pointer;
-    transition: color 0.2s ease;
-    -webkit-transition: color 0.2s ease;
+    transition: background var(--notion-transition);
+    -webkit-transition: background var(--notion-transition);
   }
 
   ::-webkit-scrollbar-thumb:window-inactive {
-    background: rgba(0, 0, 0, 0.15);
+    background: #E9E9E7;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    background: rgba(128, 135, 139, 0.8);
+    background: #B4B4B0;
   }
 }
 
