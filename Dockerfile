@@ -49,7 +49,6 @@ RUN python3 -m venv .venv \
   && mv public/index.ejs views \
   && npm config set update-notifier false
 
-VOLUME /app/data
 EXPOSE 1337
 
 HEALTHCHECK --interval=10s --timeout=2s --start-period=15s \
