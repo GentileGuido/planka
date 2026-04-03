@@ -15,24 +15,25 @@
   }
 
   .field {
-    border: none;
-    border-radius: 3px;
-    box-shadow: 0 1px 0 #ccc;
-    color: #333;
+    background: var(--rw-bg-tertiary);
+    border: 1px solid var(--rw-border);
+    border-radius: var(--rw-radius-sm);
+    box-shadow: none;
+    color: var(--rw-text);
     outline: none;
     overflow: hidden;
     width: 100%;
 
     &:focus {
-      border-color: #298fca;
-      box-shadow: 0 0 2px #298fca;
+      border-color: var(--rw-accent);
+      box-shadow: 0 0 0 1px var(--rw-accent);
     }
   }
 
   .selectTypeButton {
     background: transparent;
     box-shadow: none;
-    color: #6b808c;
+    color: var(--rw-text-secondary);
     font-weight: normal;
     margin-left: auto;
     margin-right: 0;
@@ -43,8 +44,8 @@
     transition: none;
 
     &:hover {
-      background: rgba(9, 30, 66, 0.08);
-      color: #092d42;
+      background: rgba(255, 255, 255, 0.06);
+      color: var(--rw-text);
     }
   }
 
@@ -53,8 +54,9 @@
   }
 
   .wrapper {
-    background: #e2e4e6;
-    border-radius: 3px;
+    background: var(--rw-bg-secondary);
+    border: 1px solid var(--rw-border);
+    border-radius: var(--rw-radius-sm);
     padding: 4px;
     transition: opacity 40ms ease-in;
     width: 272px;

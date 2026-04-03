@@ -46,6 +46,7 @@
     -ms-overflow-style: none;
     padding: 15px 0;
     scrollbar-width: none;
+    border-bottom: 1px solid var(--rw-border);
 
     &::-webkit-scrollbar {
       display: none;

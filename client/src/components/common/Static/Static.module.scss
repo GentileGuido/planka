@@ -7,13 +7,22 @@
   .button {
     margin-top: 24px;
     padding: 0.78571429em 1.5em 0.78571429em;
-    transition: background 0.15s ease, box-shadow 0.15s ease;
+    transition: background var(--rw-transition), box-shadow var(--rw-transition);
+    background: var(--rw-accent) !important;
+    color: var(--rw-text) !important;
+    border: none !important;
+    border-radius: var(--rw-radius) !important;
+
+    &:hover {
+      background: var(--rw-accent-hover) !important;
+      box-shadow: var(--rw-card-shadow-hover);
+    }
   }
 
   .message {
     align-content: space-between;
     align-items: center;
-    color: #37352f;
+    color: var(--rw-text);
     display: flex;
     flex: 1 1 auto;
     flex-direction: column;
@@ -22,13 +31,13 @@
 
   .messageIcon {
     margin-top: -84px;
-    color: #37352f;
+    color: var(--rw-text-secondary);
   }
 
   .messageTitle {
     font-size: 32px;
     margin: 24px 0 8px;
-    color: #37352f;
+    color: var(--rw-text);
     font-weight: 600;
   }
 
@@ -37,11 +46,11 @@
     line-height: 1.4;
     margin: 4px 0 0;
     text-align: center;
-    color: rgba(55, 53, 47, 0.65);
+    color: var(--rw-text-secondary);
   }
 
   .wrapper {
-    background: #f7f8fa;
+    background: var(--rw-bg);
     height: 100%;
     margin-top: 116px;
     transition: margin-top 0.2s ease, background 0.2s ease;

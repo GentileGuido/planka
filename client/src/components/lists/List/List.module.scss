@@ -11,23 +11,23 @@
   .addCardButton {
     background: transparent;
     border: none;
-    color: #787774;
+    color: var(--rw-text-tertiary);
     cursor: pointer;
     display: block;
-    fill: #787774;
+    fill: var(--rw-text-tertiary);
     flex: 1;
     font-weight: normal;
     height: 36px;
     outline: none;
     padding: 8px;
     text-align: left;
-    border-radius: 6px;
-    transition: background 0.15s ease, color 0.15s ease;
+    border-radius: var(--rw-radius-sm);
+    transition: background var(--rw-transition), color var(--rw-transition);
 
     &:hover {
-      background: #F0F0F0;
-      color: #37352F;
-      fill: #37352F;
+      background: rgba(255, 255, 255, 0.06);
+      color: var(--rw-accent-hover);
+      fill: var(--rw-accent-hover);
     }
 
     &.paste {
@@ -67,7 +67,7 @@
     width: 290px;
 
     @supports (-moz-appearance: none) {
-      scrollbar-color: rgba(0, 0, 0, 0.2) transparent;
+      scrollbar-color: rgba(255, 255, 255, 0.15) transparent;
       scrollbar-width: thin;
     }
 
@@ -85,7 +85,7 @@
 
     &::-webkit-scrollbar-thumb {
       border-radius: 4px;
-      background: rgba(0, 0, 0, 0.15);
+      background: rgba(255, 255, 255, 0.15);
     }
   }
 
@@ -118,7 +118,7 @@
   .headerButton {
     background: none;
     box-shadow: none;
-    color: #787774;
+    color: var(--rw-text-tertiary);
     line-height: 32px;
     margin: 0;
     opacity: 0;
@@ -128,23 +128,23 @@
     top: 6px;
     width: 32px;
     border-radius: 4px;
-    transition: background 0.15s ease, opacity 0.15s ease;
+    transition: background var(--rw-transition), opacity var(--rw-transition), color var(--rw-transition);
 
     &:hover {
-      background: #F0F0F0;
-      color: #37352F;
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--rw-text);
     }
   }
 
   .headerIcon {
-    color: #787774;
+    color: var(--rw-text-tertiary);
     position: absolute;
     right: 8px;
     top: 12px;
   }
 
   .headerName {
-    color: #37352F;
+    color: var(--rw-text);
     font-size: 14px;
     font-weight: 600;
     line-height: 20px;
@@ -167,12 +167,18 @@
   }
 
   .outerWrapper {
-    background: transparent;
-    border-radius: 6px;
+    background: var(--rw-bg-secondary);
+    border: 1px solid var(--rw-border);
+    border-radius: var(--rw-radius);
     display: flex;
     flex-direction: column;
     max-height: calc(100vh - 198px);
     overflow: hidden;
+    transition: border-color var(--rw-transition);
+
+    &:hover {
+      border-color: var(--rw-border-hover);
+    }
   }
 
   .outerWrapperTransitioning {

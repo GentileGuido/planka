@@ -13,7 +13,7 @@
   }
 
   .attachmentContent {
-    color: #787774;
+    color: var(--rw-text-tertiary);
     font-size: 12px;
     line-height: 20px;
     max-width: 176px;
@@ -43,12 +43,12 @@
   }
 
   .coverWrapper {
-    border-radius: 8px 8px 0 0;
+    border-radius: var(--rw-radius) var(--rw-radius) 0 0;
     overflow: hidden;
   }
 
   .descriptionText {
-    color: #17394d;
+    color: var(--rw-text-secondary);
     font-size: 10px;
     margin-bottom: 8px;
     mask-image: linear-gradient(180deg, #000 60%, transparent);
@@ -65,7 +65,7 @@
   }
 
   .name {
-    color: #37352F;
+    color: var(--rw-text);
     font-size: 14px;
     font-weight: 500;
     line-height: 20px;
@@ -78,7 +78,7 @@
   }
 
   .notification {
-    background: #eb5a46;
+    background: var(--rw-error);
     color: #fff;
     font-size: 12px;
     line-height: 20px;

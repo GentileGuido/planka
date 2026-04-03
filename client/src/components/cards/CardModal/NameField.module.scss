@@ -7,9 +7,9 @@
   .field {
     background: transparent;
     border: 1px solid transparent;
-    border-radius: 3px;
+    border-radius: var(--rw-radius-sm);
     box-shadow: none;
-    color: #17394d;
+    color: var(--rw-text);
     font-weight: bold;
     margin: -5px;
     overflow: hidden;
@@ -18,9 +18,9 @@
     width: 100%;
 
     &:focus {
-      background: #fff;
-      border-color: #5ba4cf;
-      box-shadow: 0 0 2px 0 #5ba4cf;
+      background: var(--rw-bg-secondary);
+      border-color: var(--rw-accent);
+      box-shadow: 0 0 0 2px rgba(147, 51, 234, 0.2);
       outline: 0;
     }
   }

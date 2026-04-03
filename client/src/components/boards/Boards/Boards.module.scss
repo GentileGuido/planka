@@ -6,12 +6,15 @@
 :global(#app) {
   .addButton {
     background: transparent;
-    color: #fff;
+    color: var(--rw-text-secondary);
     margin-right: 0;
     vertical-align: top;
+    transition: all var(--rw-transition);
+    border-radius: var(--rw-radius-sm);
 
     &:hover {
-      background: rgba(34, 36, 38, 0.3);
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--rw-text);
     }
   }
 
@@ -30,7 +33,7 @@
     overflow-y: hidden;
 
     @supports (-moz-appearance: none) {
-      scrollbar-color: rgba(0, 0, 0, 0.32) transparent;
+      scrollbar-color: var(--rw-border) transparent;
       scrollbar-width: thin;
     }
 
@@ -48,11 +51,12 @@
 
     &::-webkit-scrollbar-thumb {
       border-radius: 3px;
+      background: var(--rw-border);
     }
   }
 
   .wrapper {
-    border-bottom: 1px solid rgba(0, 0, 0, 0.24);
+    border-bottom: 1px solid var(--rw-border);
     display: flex;
     flex: 1 1 auto;
     flex-direction: column;

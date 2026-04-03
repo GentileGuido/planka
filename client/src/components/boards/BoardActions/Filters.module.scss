@@ -31,16 +31,18 @@
   }
 
   .filterLabel {
-    background: rgba(0, 0, 0, 0.24);
-    border-radius: 3px;
-    color: #fff;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: var(--rw-radius-sm);
+    color: var(--rw-text-secondary);
     display: inline-block;
     font-size: 12px;
     line-height: 20px;
     padding: 2px 8px;
+    transition: all var(--rw-transition);
 
     &:hover {
-      background: rgba(0, 0, 0, 0.32);
+      background: rgba(255, 255, 255, 0.12);
+      color: var(--rw-text);
     }
   }
 
@@ -49,8 +51,8 @@
   }
 
   .filterTitle {
-    border-radius: 3px;
-    color: #fff;
+    border-radius: var(--rw-radius-sm);
+    color: var(--rw-text-secondary);
     display: inline-block;
     font-size: 12px;
     line-height: 20px;
@@ -69,22 +71,35 @@
 
     input {
       font-size: 13px;
+      background: var(--rw-bg-tertiary);
+      border: 1px solid var(--rw-border);
+      border-radius: var(--rw-radius-sm);
+      color: var(--rw-text);
+      transition: border-color var(--rw-transition);
+
+      &:focus {
+        border-color: var(--rw-accent);
+      }
+
+      &::placeholder {
+        color: var(--rw-text-tertiary);
+      }
     }
   }
 
   .searchInactive {
-    color: #fff;
+    color: var(--rw-text-secondary);
     height: 24px;
     width: 220px;
 
     input {
-      background: rgba(0, 0, 0, 0.24);
-      border: none;
-      color: #fff !important;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid transparent;
+      color: var(--rw-text-secondary) !important;
       font-size: 12px;
 
       &::placeholder {
-        color: #fff;
+        color: var(--rw-text-tertiary);
       }
     }
   }

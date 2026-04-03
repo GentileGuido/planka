@@ -7,24 +7,27 @@
   .editButton {
     background: transparent;
     box-shadow: none;
-    color: #37352f;
+    color: var(--rw-text-secondary);
     font-size: 15px;
     line-height: 34px;
     margin-left: 8px;
     opacity: 0;
     padding: 0;
     width: 34px;
+    transition: all var(--rw-transition);
 
     &:hover {
-      background: #f0f0f0;
-      border-radius: 6px;
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: var(--rw-radius-sm);
+      color: var(--rw-text);
     }
   }
 
   .item {
     cursor: auto;
     user-select: auto;
-    color: #37352f !important;
+    color: var(--rw-text-secondary) !important;
+    transition: all var(--rw-transition);
 
     &:before {
       background: none !important;
@@ -33,7 +36,7 @@
     &:active,
     &:hover {
       background: transparent !important;
-      color: #37352f !important;
+      color: var(--rw-text) !important;
 
       .editButton {
         opacity: 1;
@@ -41,31 +44,42 @@
     }
   }
 
-  .itemHoverable:hover {
-    cursor: pointer;
-    background: #f0f0f0 !important;
-    border-radius: 6px;
+  .itemHoverable {
+    position: relative;
+
+    &:hover {
+      cursor: pointer;
+      background: rgba(255, 255, 255, 0.06) !important;
+      border-radius: var(--rw-radius-sm);
+      color: var(--rw-text) !important;
+    }
+
+    &:active {
+      background: rgba(255, 255, 255, 0.1) !important;
+    }
   }
 
   .itemIconEnabled {
-    color: #2eaadc;
+    color: var(--rw-accent-hover) !important;
   }
 
   .logo {
-    color: #37352f;
+    color: var(--rw-text);
     flex: 0 0 auto;
-    letter-spacing: 1.5px;
-    line-height: 50px;
-    padding: 0 16px;
+    letter-spacing: 2px;
+    line-height: 56px;
+    padding: 0 20px;
     text-transform: none;
     font-weight: 700;
+    font-size: 16px;
+    transition: color var(--rw-transition);
 
     &:before {
       background: none;
     }
 
     &:hover {
-      color: #37352f !important;
+      color: var(--rw-accent-hover) !important;
     }
   }
 
@@ -74,38 +88,44 @@
     border: none !important;
     border-radius: 0 !important;
     box-shadow: none !important;
-    color: #37352f;
+    color: var(--rw-text-secondary);
     flex: 1 1 auto;
-    height: 50px;
+    height: 56px;
     margin: 0;
     width: 100%;
   }
 
   .notification {
-    background: #eb5757;
+    background: var(--rw-accent);
     border-radius: 10px;
     color: #fff;
     display: inline-block;
-    font-size: 11px;
-    font-weight: 600;
-    height: 14px;
+    font-size: 10px;
+    font-weight: 700;
+    height: 16px;
     left: 22px;
-    line-height: 14px;
-    min-width: 14px;
+    line-height: 16px;
+    min-width: 16px;
     position: absolute;
     text-align: center;
-    top: 10px;
+    top: 8px;
+    padding: 0 4px;
+    box-shadow: 0 0 0 2px var(--rw-bg-secondary);
   }
 
   .title {
-    font-size: 18px;
+    font-size: 15px;
     font-weight: 600;
-    color: #37352f;
+    color: var(--rw-text) !important;
+    letter-spacing: 0.2px;
   }
 
   .userName {
     margin-right: 10px;
-    color: #37352f;
+    color: var(--rw-text-secondary);
+    font-size: 13px;
+    font-weight: 500;
+    transition: color var(--rw-transition);
 
     @media only screen and (width < 768px) {
       display: none;
@@ -113,10 +133,12 @@
   }
 
   .wrapper {
-    background: #ffffff;
+    background: var(--rw-bg-secondary);
     display: flex;
     flex: 0 0 auto;
-    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.06);
-    padding: 0 4px;
+    border-bottom: 1px solid var(--rw-border);
+    box-shadow: none;
+    padding: 0 8px;
+    backdrop-filter: blur(12px);
   }
 }

@@ -5,24 +5,24 @@
 
 :global(#app) {
   .content {
-    color: #37352F;
+    color: var(--rw-text);
   }
 
   .cover {
-    background: #E9E9E7;
+    background: var(--rw-bg-tertiary);
     bottom: 0;
     left: 0;
     position: absolute;
     right: 0;
     top: 0;
-    transition: filter 0.2s ease;
+    transition: filter var(--rw-transition);
 
     &::after {
       background: #000;
       bottom: 0;
       content: "";
       left: 0;
-      opacity: 0.08;
+      opacity: 0.15;
       position: absolute;
       right: 0;
       top: 0;
@@ -30,7 +30,7 @@
   }
 
   .description {
-    border-left: 1px solid #E9E9E7;
+    border-left: 1px solid var(--rw-border);
     display: -webkit-box;
     font-weight: lighter;
     hyphens: auto;
@@ -45,6 +45,7 @@
     white-space: pre-line;
     word-break: break-word;
     -webkit-box-orient: vertical;
+    color: var(--rw-text-secondary);
   }
 
   .favoriteButton {
@@ -58,9 +59,11 @@
     right: 4px;
     top: 4px;
     width: 36px;
+    transition: all var(--rw-transition);
 
     &:hover {
-      background: rgba(55, 53, 47, 0.08);
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: var(--rw-radius-sm);
     }
   }
 
@@ -69,8 +72,9 @@
   }
 
   .icon {
-    color: #787774;
+    color: var(--rw-text-secondary);
     font-size: 18px;
+    transition: color var(--rw-transition);
   }
 
   .information {
@@ -79,12 +83,14 @@
   }
 
   .notifications {
-    background: #EB5A46;
+    background: var(--rw-accent);
     border: none;
-    border-radius: 6px;
+    border-radius: var(--rw-radius-sm);
     outline: none;
     padding: 0px 6px;
     position: absolute;
+    color: #fff;
+    font-weight: 600;
     transition: background 0.3s ease;
   }
 
@@ -98,14 +104,16 @@
     position: absolute;
     word-break: break-word;
     -webkit-box-orient: vertical;
+    color: var(--rw-text);
   }
 
   .titleActivatable {
-    color: #787774;
+    color: var(--rw-text-secondary);
+    transition: color var(--rw-transition);
   }
 
   .titleActive {
-    color: #37352F;
+    color: var(--rw-text);
     font-weight: bold;
   }
 
@@ -118,6 +126,7 @@
 
   .typeIndicatorIcon {
     opacity: 0.8;
+    color: var(--rw-text-secondary);
   }
 
   .typeIndicatorWithUser {
@@ -126,20 +135,20 @@
   }
 
   .wrapper {
-    background: #FFFFFF;
-    border: 1px solid #E9E9E7;
-    border-radius: 8px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.06);
+    background: var(--rw-card-bg);
+    border: 1px solid var(--rw-border);
+    border-radius: var(--rw-radius);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2), 0 1px 2px rgba(0, 0, 0, 0.15);
     overflow: hidden;
     position: relative;
-    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    transition: border-color var(--rw-transition), box-shadow var(--rw-transition);
 
     &:hover {
-      border-color: #D3D3D0;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08), 0 1px 4px rgba(0, 0, 0, 0.06);
+      border-color: var(--rw-border-hover);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3), 0 1px 4px rgba(0, 0, 0, 0.2);
 
       .cover {
-        filter: brightness(0.95);
+        filter: brightness(1.1);
       }
 
       .description {
@@ -152,7 +161,11 @@
       }
 
       .titleActivatable {
-        color: #37352F;
+        color: var(--rw-text);
+      }
+
+      .icon {
+        color: var(--rw-accent-hover);
       }
     }
   }

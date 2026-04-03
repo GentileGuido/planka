@@ -5,19 +5,23 @@
 
 :global(#app) {
   .addButton {
-    background: transparent;
-    border: none;
-    border-radius: 4px;
-    color: rgba(255, 255, 255, 0.48);
+    background: var(--rw-bg-tertiary);
+    border: 1px dashed var(--rw-border);
+    border-radius: var(--rw-radius);
+    color: var(--rw-text-secondary);
     cursor: pointer;
-    fill: rgba(255, 255, 255, 0.48);
+    fill: var(--rw-text-secondary);
     overflow: hidden;
     padding: 0;
     position: relative;
     text-align: center;
     width: 100%;
+    transition: border-color var(--rw-transition), background var(--rw-transition);
 
     &:hover {
+      border-color: var(--rw-accent);
+      background: rgba(147, 51, 234, 0.08);
+
       .addButtonCover {
         filter: brightness(0.8);
       }
@@ -56,12 +60,16 @@
   }
 
   .card {
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1), 0 6px 12px rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--rw-border);
+    border-radius: var(--rw-radius);
+    box-shadow: var(--rw-card-shadow);
     height: 150px;
-    transition: box-shadow 0.2s ease;
+    transition: box-shadow var(--rw-transition), border-color var(--rw-transition), transform var(--rw-transition);
 
     &:hover {
-      box-shadow: 0 16px 32px rgba(0, 0, 0, 0.1), 0 32px 64px rgba(0, 0, 0, 0.1);
+      box-shadow: var(--rw-card-shadow-hover);
+      border-color: var(--rw-border-hover);
+      transform: translateY(-2px);
     }
   }
 
@@ -96,7 +104,7 @@
   }
 
   .title {
-    color: #6b808c;
+    color: var(--rw-text-secondary);
     font-size: 16px;
     padding: 14px 0 14px 2px;
   }

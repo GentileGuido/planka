@@ -4,26 +4,35 @@
  */
 
 :root {
-  --notion-bg: #FFFFFF;
-  --notion-bg-secondary: #F7F8FA;
-  --notion-bg-tertiary: #F0F0F0;
-  --notion-text: #37352F;
-  --notion-text-secondary: #787774;
-  --notion-text-tertiary: #B4B4B0;
-  --notion-border: #E9E9E7;
-  --notion-border-hover: #D3D3D0;
-  --notion-accent: #2383E2;
-  --notion-card-bg: #FFFFFF;
-  --notion-card-shadow: 0 1px 2px rgba(0,0,0,0.04);
-  --notion-card-shadow-hover: 0 2px 8px rgba(0,0,0,0.08);
-  --notion-radius: 8px;
-  --notion-radius-sm: 4px;
-  --notion-transition: 0.15s ease;
+  /* Railway dark theme tokens */
+  --rw-bg: #13111C;
+  --rw-bg-secondary: #171520;
+  --rw-bg-tertiary: #1E1B2A;
+  --rw-text: #FFFFFF;
+  --rw-text-secondary: #A09DAE;
+  --rw-text-tertiary: #6F6C7E;
+  --rw-border: #302D3D;
+  --rw-border-hover: #4A4658;
+  --rw-accent: #9333EA;
+  --rw-accent-hover: #A855F7;
+  --rw-accent-secondary: #06B6D4;
+  --rw-success: #22C55E;
+  --rw-warning: #EAB308;
+  --rw-error: #EF4444;
+  --rw-card-bg: #1E1B2A;
+  --rw-card-shadow: 0 1px 3px rgba(0,0,0,0.3), 0 1px 2px rgba(0,0,0,0.2);
+  --rw-card-shadow-hover: 0 4px 12px rgba(0,0,0,0.4);
+  --rw-radius: 8px;
+  --rw-radius-sm: 4px;
+  --rw-radius-btn: 6px;
+  --rw-transition: 0.15s ease;
 }
 
 :global {
   #app {
-    background: var(--notion-bg-secondary);
+    background: var(--rw-bg);
+    color: var(--rw-text);
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     overflow-x: auto;
 
     &::-webkit-scrollbar {
@@ -37,19 +46,21 @@
       }
 
       &__suggestions {
-        border: 1px solid var(--notion-border);
-        border-radius: var(--notion-radius);
+        border: 1px solid var(--rw-border);
+        border-radius: var(--rw-radius);
         border-width: 0;
-        box-shadow: var(--notion-card-shadow-hover);
+        box-shadow: var(--rw-card-shadow-hover);
         max-height: 200px;
         overflow-y: auto;
+        background: var(--rw-bg-tertiary);
 
         &__item {
           padding: 8px 12px;
+          color: var(--rw-text-secondary);
 
           &--focused {
-            background-color: var(--notion-bg-tertiary);
-            color: var(--notion-text);
+            background-color: var(--rw-border);
+            color: var(--rw-text);
           }
         }
       }
@@ -57,17 +68,17 @@
 
     .react-datepicker {
       border: 0;
-      color: var(--notion-text);
+      color: var(--rw-text);
       font-size: 14px;
       font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       padding-bottom: 8px;
-      background: var(--notion-card-bg);
-      border-radius: var(--notion-radius);
+      background: var(--rw-bg-tertiary);
+      border-radius: var(--rw-radius);
     }
 
     .react-datepicker__current-month,
     .react-datepicker-time__header {
-      color: var(--notion-text);
+      color: var(--rw-text);
       font-weight: 600;
       font-size: 14px;
       line-height: 32px;
@@ -76,7 +87,7 @@
     }
 
     .react-datepicker__header {
-      background: var(--notion-card-bg);
+      background: var(--rw-bg-tertiary);
       border: 0;
       padding: 0;
     }
@@ -84,34 +95,34 @@
     .react-datepicker__day-name,
     .react-datepicker__day,
     .react-datepicker__time-name {
-      color: var(--notion-text);
+      color: var(--rw-text);
       width: 40px;
       margin: 0;
       border-style: solid;
       border-width: 0 0 1px 1px;
-      border-color: var(--notion-border);
+      border-color: var(--rw-border);
     }
 
     .react-datepicker__day--selected,
     .react-datepicker__day--in-selecting-range,
     .react-datepicker__day--in-range {
-      border-radius: var(--notion-radius-sm);
+      border-radius: var(--rw-radius-sm);
       color: #fff;
-      background-color: var(--notion-accent);
+      background-color: var(--rw-accent);
     }
 
     .react-datepicker__day-names,
     .react-datepicker__week {
-      border-right: 1px solid var(--notion-border);
+      border-right: 1px solid var(--rw-border);
     }
 
     .react-datepicker__day-names {
-      background: var(--notion-bg-secondary);
-      border-top: 1px solid var(--notion-border);
+      background: var(--rw-bg-secondary);
+      border-top: 1px solid var(--rw-border);
     }
 
     .react-datepicker__day--outside-month {
-      color: var(--notion-text-tertiary);
+      color: var(--rw-text-tertiary);
     }
 
     .react-datepicker__month {
@@ -139,8 +150,8 @@
       outline: none;
 
       &:hover {
-        border-radius: var(--notion-radius-sm);
-        background-color: var(--notion-bg-tertiary);
+        border-radius: var(--rw-radius-sm);
+        background-color: var(--rw-border);
       }
     }
 
@@ -149,9 +160,9 @@
     }
 
     .ui.input.error > input {
-      background-color: #fff6f6 !important;
-      border-color: #e0b4b4 !important;
-      color: #9f3a38 !important;
+      background-color: rgba(239, 68, 68, 0.1) !important;
+      border-color: var(--rw-error) !important;
+      color: #fca5a5 !important;
       -webkit-box-shadow: none !important;
       box-shadow: none !important;
     }
@@ -159,7 +170,7 @@
     .ui.page.dimmer {
       -webkit-perspective: none;
       perspective: none;
-      background-color: rgba(255, 255, 255, 0.75);
+      background-color: rgba(0, 0, 0, 0.65);
     }
   }
 
@@ -181,9 +192,9 @@
   }
 
   .yfm {
-    --yfm-color-accent: var(--notion-accent) !important;
-    --yfm-color-link: var(--notion-accent) !important;
-    --yfm-color-text: var(--notion-text) !important;
+    --yfm-color-accent: var(--rw-accent) !important;
+    --yfm-color-link: var(--rw-accent-hover) !important;
+    --yfm-color-text: var(--rw-text) !important;
     --yfm-font-family-monospace: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas, Liberation Mono, monospace !important;
     --yfm-font-family-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
 
@@ -201,7 +212,7 @@
     h5,
     h6 {
       line-height: 1.25 !important;
-      color: var(--notion-text);
+      color: var(--rw-text);
     }
 
     h1 {
@@ -229,9 +240,9 @@
     }
 
     .mention {
-      color: var(--notion-accent);
-      background-color: rgba(35, 131, 226, 0.08);
-      border-radius: var(--notion-radius-sm);
+      color: var(--rw-accent);
+      background-color: rgba(147, 51, 234, 0.12);
+      border-radius: var(--rw-radius-sm);
       padding: 0 2px;
     }
 
@@ -247,27 +258,27 @@
     }
   }
 
-  /* highlight.js — Notion-inspired light theme */
+  /* highlight.js — Railway dark theme */
 
   .hljs {
     display: block;
     overflow-x: auto;
     padding: .5em;
-    color: var(--notion-text);
-    background: var(--notion-bg-secondary);
-    border-radius: var(--notion-radius-sm);
+    color: var(--rw-text-secondary);
+    background: var(--rw-bg-secondary);
+    border-radius: var(--rw-radius-sm);
   }
 
   .hljs-comment,
   .hljs-quote {
-    color: var(--notion-text-tertiary);
+    color: var(--rw-text-tertiary);
     font-style: italic
   }
 
   .hljs-keyword,
   .hljs-selector-tag,
   .hljs-subst {
-    color: #D63384;
+    color: #C084FC;
     font-weight: 600;
   }
 
@@ -276,18 +287,18 @@
   .hljs-tag .hljs-attr,
   .hljs-template-variable,
   .hljs-variable {
-    color: #0D6EFD
+    color: #38BDF8
   }
 
   .hljs-doctag,
   .hljs-string {
-    color: #2DA44E
+    color: #4ADE80
   }
 
   .hljs-section,
   .hljs-selector-id,
   .hljs-title {
-    color: #953800;
+    color: #FB923C;
     font-weight: 600;
   }
 
@@ -297,43 +308,45 @@
 
   .hljs-class .hljs-title,
   .hljs-type {
-    color: #6639BA;
+    color: #E879F9;
     font-weight: 600;
   }
 
   .hljs-attribute,
   .hljs-name,
   .hljs-tag {
-    color: #0550AE;
+    color: #67E8F9;
     font-weight: normal
   }
 
   .hljs-link,
   .hljs-regexp {
-    color: #1A7F37
+    color: #34D399
   }
 
   .hljs-bullet,
   .hljs-symbol {
-    color: #6639BA
+    color: #C084FC
   }
 
   .hljs-built_in,
   .hljs-builtin-name {
-    color: #0550AE
+    color: #22D3EE
   }
 
   .hljs-meta {
-    color: var(--notion-text-secondary);
+    color: var(--rw-text-secondary);
     font-weight: 600;
   }
 
   .hljs-deletion {
-    background: #FFEBE9
+    background: rgba(239, 68, 68, 0.2);
+    color: #FCA5A5;
   }
 
   .hljs-addition {
-    background: #DAFBE1
+    background: rgba(34, 197, 94, 0.2);
+    color: #86EFAC;
   }
 
   .hljs-emphasis {
@@ -344,7 +357,7 @@
     font-weight: bold;
   }
 
-  /* Subtle Notion-style scrollbars */
+  /* Railway-style dark scrollbars */
 
   ::-webkit-scrollbar {
     height: 6px;
@@ -358,19 +371,19 @@
   }
 
   ::-webkit-scrollbar-thumb {
-    background: #D3D3D0;
+    background: var(--rw-border);
     border-radius: 3px;
     cursor: pointer;
-    transition: background var(--notion-transition);
-    -webkit-transition: background var(--notion-transition);
+    transition: background var(--rw-transition);
+    -webkit-transition: background var(--rw-transition);
   }
 
   ::-webkit-scrollbar-thumb:window-inactive {
-    background: #E9E9E7;
+    background: #252233;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    background: #B4B4B0;
+    background: var(--rw-border-hover);
   }
 }
 

@@ -7,9 +7,9 @@
   .actionsButton {
     background: none;
     box-shadow: none;
-    border-radius: 6px;
+    border-radius: var(--rw-radius-sm);
     box-sizing: content-box;
-    color: #787774;
+    color: var(--rw-text-tertiary);
     display: inline-block;
     margin: 0;
     min-height: auto;
@@ -19,13 +19,13 @@
     position: absolute;
     right: 4px;
     top: 4px;
-    transition: background 0.15s ease, opacity 0.15s ease;
+    transition: background var(--rw-transition), opacity var(--rw-transition), color var(--rw-transition);
     width: 20px;
     z-index: 1000;
 
     &:hover {
-      background: #F0F0F0;
-      color: #37352F;
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--rw-text);
     }
   }
 
@@ -49,17 +49,18 @@
   }
 
   .wrapper {
-    background: #FFFFFF;
-    border: 1px solid #E9E9E7;
-    border-radius: 8px;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+    background: var(--rw-card-bg);
+    border: 1px solid var(--rw-border);
+    border-radius: var(--rw-radius);
+    box-shadow: var(--rw-card-shadow);
     overflow: hidden;
     position: relative;
-    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+    transition: border-color var(--rw-transition), box-shadow var(--rw-transition), transform var(--rw-transition);
 
     &:hover {
-      border-color: #D3D3D0;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+      border-color: var(--rw-border-hover);
+      box-shadow: var(--rw-card-shadow-hover);
+      transform: translateY(-1px);
 
       .actionsButton {
         opacity: 1;
@@ -72,7 +73,7 @@
 
     &:after {
       animation: slide 4s infinite 2s;
-      background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.3) 50%, rgba(255, 255, 255, 0) 100%);
+      background: linear-gradient(to right, rgba(147, 51, 234, 0) 0%, rgba(147, 51, 234, 0.15) 50%, rgba(147, 51, 234, 0) 100%);
       content: '';
       height: 100%;
       position: absolute;

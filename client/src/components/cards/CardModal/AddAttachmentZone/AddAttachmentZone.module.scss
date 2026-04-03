@@ -5,12 +5,13 @@
 
 :global(#app) {
   .dropzone {
-    background: white;
+    background: var(--rw-bg);
+    color: var(--rw-text);
     font-size: 20px;
     font-weight: bold;
     inset: 0;
     line-height: 30px;
-    opacity: 0.7;
+    opacity: 0.9;
     position: absolute;
     text-align: center;
     z-index: 2001;

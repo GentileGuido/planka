@@ -7,7 +7,7 @@
   .editButton {
     background: transparent;
     box-shadow: none;
-    color: #fff;
+    color: var(--rw-text-secondary);
     line-height: 32px;
     margin-right: 0;
     opacity: 0;
@@ -16,9 +16,12 @@
     right: 2px;
     top: 2px;
     width: 32px;
+    transition: all var(--rw-transition);
 
     &:hover {
-      background: rgba(255, 255, 255, 0.08);
+      background: rgba(255, 255, 255, 0.1);
+      color: var(--rw-text);
+      border-radius: var(--rw-radius-sm);
     }
   }
 
@@ -33,16 +36,18 @@
   }
 
   .name {
-    color: rgba(255, 255, 255, 0.72);
+    color: var(--rw-text-secondary);
+    transition: color var(--rw-transition);
   }
 
   .notifications {
-    background: #eb5a46;
+    background: var(--rw-accent);
     border: none;
-    border-radius: 3px;
+    border-radius: var(--rw-radius-sm);
     color: #fff;
     display: inline-block;
     font-size: 10px;
+    font-weight: 600;
     line-height: 18px;
     margin-right: 6px;
     outline: none;
@@ -52,16 +57,16 @@
   }
 
   .tab {
-    border-radius: 3px 3px 0 0;
+    border-radius: var(--rw-radius-sm) var(--rw-radius-sm) 0 0;
     min-width: 100px;
     position: relative;
-    transition: all 0.1s ease;
+    transition: all var(--rw-transition);
 
     &:hover {
-      background: rgba(0, 0, 0, 0.12);
+      background: rgba(255, 255, 255, 0.06);
 
       .name {
-        color: #fff;
+        color: var(--rw-text);
       }
 
       .editButton {
@@ -71,15 +76,16 @@
   }
 
   .tabActive {
-    background: rgba(0, 0, 0, 0.24);
+    background: rgba(255, 255, 255, 0.08);
+    border-bottom: 2px solid var(--rw-accent);
 
     &:hover {
-      background: rgba(0, 0, 0, 0.32);
+      background: rgba(255, 255, 255, 0.1);
     }
 
     .name {
-      color: #fff;
-      font-weight: bold;
+      color: var(--rw-text);
+      font-weight: 600;
     }
   }
 

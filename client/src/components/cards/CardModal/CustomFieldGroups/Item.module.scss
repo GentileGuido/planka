@@ -7,6 +7,7 @@
   .editButton {
     background: transparent;
     box-shadow: none;
+    color: var(--rw-text-secondary);
     line-height: 28px;
     margin: 0;
     min-height: auto;
@@ -18,12 +19,12 @@
     width: 28px;
 
     &:hover {
-      background: rgba(9, 30, 66, 0.08);
+      background: rgba(255, 255, 255, 0.1);
     }
   }
 
   .moduleHeader {
-    color: #17394d;
+    color: var(--rw-text);
     display: flex;
     font-size: 16px;
     font-weight: bold;
@@ -48,7 +49,7 @@
   }
 
   .moduleIcon {
-    color: #17394d;
+    color: var(--rw-text-secondary);
     font-size: 17px;
     height: 32px;
     left: -40px;
@@ -65,7 +66,7 @@
   }
 
   .wrapper {
-    border-radius: 3px;
+    border-radius: var(--rw-radius-sm);
     margin-bottom: 24px;
   }
 }

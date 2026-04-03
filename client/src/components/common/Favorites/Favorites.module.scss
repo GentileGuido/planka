@@ -10,7 +10,7 @@
   }
 
   .cardWrapper:not(:last-child) {
-    margin-right: 20px;
+    margin-right: 16px;
   }
 
   .cards {
@@ -21,7 +21,7 @@
     padding: 10px 20px 0 20px;
 
     @supports (-moz-appearance: none) {
-      scrollbar-color: rgba(0, 0, 0, 0.32) transparent;
+      scrollbar-color: var(--rw-border) transparent;
       scrollbar-width: thin;
     }
 
@@ -39,11 +39,13 @@
 
     &::-webkit-scrollbar-thumb {
       border-radius: 3px;
+      background: var(--rw-border);
     }
   }
 
   .wrapper {
-    background: rgba(0, 0, 0, 0.16);
+    background: var(--rw-bg);
+    border-bottom: 1px solid var(--rw-border);
     height: 0;
     overflow-y: hidden;
     transition: height 0.2s ease;

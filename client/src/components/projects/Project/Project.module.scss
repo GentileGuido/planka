@@ -5,7 +5,7 @@
 
 :global(#app) {
   .wrapper {
-    background: rgba(0, 0, 0, 0.16);
+    background: var(--rw-bg-secondary);
     display: flex;
     flex-direction: column;
     height: 100%;
