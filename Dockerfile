@@ -13,16 +13,12 @@ RUN npm install npm --global \
   && npm run build \
   && npm prune --production
 
-# Stage 2: Client build
-FROM node:22 AS client
+# Stage 2: Client (use pre-built assets)
+FROM node:22-alpine AS client
 
 WORKDIR /app
 
-COPY client .
-
-RUN npm install npm --global \
-  && npm install --omit=dev \
-  && INDEX_FORMAT=ejs DISABLE_ESLINT_PLUGIN=true npm run build
+COPY client/dist dist
 
 # Stage 3: Final image
 FROM node:22-alpine

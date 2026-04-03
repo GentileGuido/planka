@@ -20,4 +20,4 @@ server/terms/*
 !server/terms/_template
 !server/terms/cloud
 
-client/dist
+# client/dist — included for pre-built assets
