@@ -22,7 +22,6 @@ class PlankaClient:
     def __init__(self) -> None:
         self._token: str = ""
         self._base = PLANKA_URL
-        # Cached structure: {project_name: {id, boards: [{id, lists: [{id, name}]}]}}
         self._cache: dict[str, Any] = {}
 
     # ------------------------------------------------------------------
@@ -30,7 +29,6 @@ class PlankaClient:
     # ------------------------------------------------------------------
 
     def _login(self) -> str:
-        """Obtain a fresh JWT token."""
         resp = requests.post(
             f"{self._base}/api/access-tokens",
             json={"emailOrUsername": PLANKA_EMAIL, "password": PLANKA_PASSWORD},
@@ -49,13 +47,7 @@ class PlankaClient:
             self._login()
         return {"Authorization": f"Bearer {self._token}"}
 
-    def _request(
-        self,
-        method: str,
-        path: str,
-        **kwargs: Any,
-    ) -> Any:
-        """Make an API request with automatic token renewal on 401."""
+    def _request(self, method: str, path: str, **kwargs: Any) -> Any:
         url = f"{self._base}{path}"
         kwargs.setdefault("timeout", 15)
 
@@ -67,9 +59,7 @@ class PlankaClient:
             resp = requests.request(method, url, headers=self._headers(), **kwargs)
 
         if resp.status_code >= 400:
-            raise PlankaError(
-                f"Planka API error {resp.status_code}: {resp.text[:300]}"
-            )
+            raise PlankaError(f"Planka API error {resp.status_code}: {resp.text[:300]}")
         if resp.status_code == 204:
             return None
         return resp.json()
@@ -79,7 +69,7 @@ class PlankaClient:
     # ------------------------------------------------------------------
 
     def refresh_cache(self) -> None:
-        """Load all projects, boards, lists and cards into the cache."""
+        """Load projects, boards, lists and cards. Filters out unnamed lists."""
         projects_resp = self._request("GET", "/api/projects")
         items = projects_resp.get("items", [])
 
@@ -93,20 +83,19 @@ class PlankaClient:
             included = detail.get("included", {})
 
             boards = included.get("boards", [])
-            lists = included.get("lists", [])
+            raw_lists = included.get("lists", [])
             cards = included.get("cards", [])
 
-            # Build board → lists mapping
-            board_map: dict[str, list[dict[str, Any]]] = {}
-            for lst in lists:
-                bid = lst["boardId"]
-                board_map.setdefault(bid, []).append(lst)
+            # --- Filter out ghost lists (name is None) ---
+            valid_lists = [l for l in raw_lists if l.get("name")]
 
-            # Build list → cards mapping
+            board_map: dict[str, list[dict[str, Any]]] = {}
+            for lst in valid_lists:
+                board_map.setdefault(lst["boardId"], []).append(lst)
+
             list_card_map: dict[str, list[dict[str, Any]]] = {}
             for card in cards:
-                lid = card["listId"]
-                list_card_map.setdefault(lid, []).append(card)
+                list_card_map.setdefault(card["listId"], []).append(card)
 
             cache[proj_name] = {
                 "id": proj["id"],
@@ -143,7 +132,6 @@ class PlankaClient:
         return self._cache.get(name)
 
     def find_list_id(self, project_name: str, list_name: str) -> str | None:
-        """Return the list ID for a given project + list name."""
         proj = self.get_project(project_name)
         if not proj:
             return None
@@ -154,7 +142,6 @@ class PlankaClient:
         return None
 
     def find_card_by_id(self, card_id: str) -> tuple[dict[str, Any] | None, str | None]:
-        """Find a card across all cached projects. Returns (card, project_name)."""
         self._ensure_cache()
         for proj_name, proj in self._cache.items():
             for board in proj["boards"]:
@@ -165,7 +152,6 @@ class PlankaClient:
         return None, None
 
     def find_list_name_for_card(self, card_id: str) -> str | None:
-        """Return the list name that contains a given card."""
         self._ensure_cache()
         for proj in self._cache.values():
             for board in proj["boards"]:
@@ -179,23 +165,15 @@ class PlankaClient:
     # Card operations
     # ------------------------------------------------------------------
 
-    def create_card(
-        self,
-        list_id: str,
-        name: str,
-        description: str = "",
-    ) -> dict[str, Any]:
-        """Create a new card in the given list."""
+    def create_card(self, list_id: str, name: str, description: str = "") -> dict[str, Any]:
         payload: dict[str, Any] = {"name": name, "position": 65535}
         if description:
             payload["description"] = description
         data = self._request("POST", f"/api/lists/{list_id}/cards", json=payload)
-        # Invalidate cache so next listing is fresh
         self._cache.clear()
         return data.get("item", data)
 
     def update_card(self, card_id: str, **fields: Any) -> dict[str, Any]:
-        """Patch a card (e.g. move it by setting listId)."""
         data = self._request("PATCH", f"/api/cards/{card_id}", json=fields)
         self._cache.clear()
         return data.get("item", data)
@@ -215,7 +193,6 @@ class PlankaClient:
     # ------------------------------------------------------------------
 
     def get_cards_for_project(self, project_name: str) -> list[dict[str, Any]]:
-        """Return all cards for a project with their list name attached."""
         self._ensure_cache()
         proj = self._cache.get(project_name)
         if not proj:
@@ -228,7 +205,6 @@ class PlankaClient:
         return results
 
     def get_all_active_cards(self) -> list[dict[str, Any]]:
-        """Return cards in 'Por hacer' / 'En progreso' across non-backlog projects."""
         self.refresh_cache()
         results: list[dict[str, Any]] = []
         for proj_name, proj in self._cache.items():

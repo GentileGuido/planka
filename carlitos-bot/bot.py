@@ -4,21 +4,30 @@ from __future__ import annotations
 
 import logging
 
-from telegram.ext import Application, CommandHandler
+from telegram.ext import (
+    Application,
+    CallbackQueryHandler,
+    CommandHandler,
+    MessageHandler,
+    filters,
+)
 
 from config import TELEGRAM_TOKEN
 from handlers import (
-    cmd_start,
-    cmd_tarea,
-    cmd_idea,
-    cmd_hoy,
-    cmd_nudo,
-    cmd_personal,
+    cb_pick_project,
+    cb_pick_status,
     cmd_dibujo,
+    cmd_done,
+    cmd_hoy,
+    cmd_idea,
     cmd_log,
     cmd_mover,
-    cmd_done,
+    cmd_nudo,
+    cmd_personal,
     cmd_resumen,
+    cmd_start,
+    cmd_tarea,
+    msg_new_task,
 )
 
 logging.basicConfig(
@@ -34,7 +43,7 @@ def main() -> None:
 
     app = Application.builder().token(TELEGRAM_TOKEN).build()
 
-    # Register command handlers
+    # Command handlers
     app.add_handler(CommandHandler("start", cmd_start))
     app.add_handler(CommandHandler("tarea", cmd_tarea))
     app.add_handler(CommandHandler("idea", cmd_idea))
@@ -47,7 +56,14 @@ def main() -> None:
     app.add_handler(CommandHandler("done", cmd_done))
     app.add_handler(CommandHandler("resumen", cmd_resumen))
 
-    logger.info("CarlitosAsist conectado 🤖")
+    # Callback handlers for inline keyboard flow
+    app.add_handler(CallbackQueryHandler(cb_pick_project, pattern=r"^proj:"))
+    app.add_handler(CallbackQueryHandler(cb_pick_status, pattern=r"^status:"))
+
+    # Plain text → conversational task creation
+    app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, msg_new_task))
+
+    logger.info("CarlitosAsist conectado")
     app.run_polling()
 
 
