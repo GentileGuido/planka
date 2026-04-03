@@ -184,6 +184,24 @@
     --g-font-family-monospace: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas, Liberation Mono, monospace !important;
     --g-font-family-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
 
+    /* Override gravity-ui dark theme with Railway tokens */
+    --g-color-base-background: var(--rw-bg) !important;
+    --g-color-base-brand: var(--rw-accent) !important;
+    --g-color-base-brand-hover: var(--rw-accent-hover) !important;
+    --g-color-text-primary: var(--rw-text) !important;
+    --g-color-text-secondary: var(--rw-text-secondary) !important;
+    --g-color-text-complementary: var(--rw-text-secondary) !important;
+    --g-color-text-hint: var(--rw-text-tertiary) !important;
+    --g-color-text-link: var(--rw-accent-hover) !important;
+    --g-color-line-generic: var(--rw-border) !important;
+    --g-color-line-generic-hover: var(--rw-border-hover) !important;
+    --g-color-base-generic: var(--rw-bg-tertiary) !important;
+    --g-color-base-generic-hover: var(--rw-border) !important;
+    --g-color-base-generic-medium: var(--rw-bg-secondary) !important;
+    --g-color-base-simple-hover: var(--rw-bg-tertiary) !important;
+    --g-color-base-float: var(--rw-bg-tertiary) !important;
+    --g-color-base-modal: var(--rw-bg-secondary) !important;
+
     .g-md-settings-content__separator,
     .g-md-settings-content__toolbar,
     .g-md-settings-content__version {

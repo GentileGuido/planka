@@ -28,7 +28,7 @@ function Root({ store, history }) {
   return (
     <Provider store={store}>
       <ReduxRouter history={history}>
-        <ThemeProvider theme="light">
+        <ThemeProvider theme="dark">
           <ToasterProvider toaster={toaster}>
             <Routes>
               <Route path={Paths.LOGIN} element={<Login />} />
